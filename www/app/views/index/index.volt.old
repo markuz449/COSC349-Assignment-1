@@ -1,0 +1,53 @@
+<!--googleoff: snippet-->
+	<div class="row jumbo">
+		<div class="container">
+			<div class="twelve columns">
+				<h1>${{ cheapest.price }} for {{ cheapest.number }} nuggets.</h1>
+                <h1 class="text-pink">${{ cheapest.per }} per nugget.</h1>
+				<h1>Currently at <span class="text-pink">{{ cheapest.place.name }}</span>.</h1>
+				<p>Last checked {{ cheapest.checked|diffForHumans }}</p>
+			</div>
+		</div>
+	</div>
+<!--googleon: snippet-->
+    <div class="row mt-2 mb-2">
+        <div class="container">
+            <div class="column">
+            {{ content() }}
+                <h2>About Nugget Watch</h2>
+                <p>Nugget Watch keeps track of chicken nugget prices in New Zealand and presents you the best deals, when you want them. Are you looking for reviews before deciding which nuggets to get? We got those too!</p>
+            </div>
+        </div>
+    </div>
+
+    {% for chain in chains %}
+    <div class="row mt-2">
+        <div class="container">
+			<div class="five columns">
+				<h2>{{ chain.name }}</h2>
+				<p>
+                {{ partial('partials/rating', ['rating': chain.rating]) }}
+                ({{ chain.reviews|length }})
+				</p>
+				<p>{{ link_to('chains/' ~ chain.nicename, 'See Reviews', 'class':'button') }}</p>
+			</div>
+			<div class="seven columns">
+				<table class="u-full-width">
+					<tr>
+						<th>Price</th>
+						<th>Number</th>
+						<th>Per Nugget</th>
+					</tr>
+					{% for price in chain.prices %}
+					<tr>
+						<td>{{ price.price|money }}</td>
+						<td>{{ price.number }}</td>
+						<td>{{ price.per|money }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+		{% endfor %}
+

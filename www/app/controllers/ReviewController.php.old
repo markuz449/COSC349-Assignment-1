@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Forms\ReviewForm;
+use App\Models\Chains;
+use App\Models\Reviews;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Uniqueness;
+
+class ReviewController extends ControllerBase {
+
+	public function indexAction($nicename = null) {
+
+        $form = new ReviewForm();
+        $this->view->check = true;
+        if (!is_null($nicename)) {
+            $this->view->check = false;
+            $chain = Chains::findFirstByNicename($nicename);
+            if (!$chain) {
+                $this->dispatcher->forward([
+                    "controller" => "error",
+                    "action"     => "show404",
+                ]);
+                return false;
+            }
+            $this->view->chain = $chain;
+        }
+
+        if ($this->request->isPost()) {
+            if (!isset($chain)) {
+                $chain = Chains::findFirstByNicename($this->request->getPost("chain", "string"));
+            }
+
+            if (!$form->isValid($this->request->getPost())) {
+                $messages = $form->getMessages();
+                foreach ($messages as $message) {
+					$this->flash->error($message);
+                }
+            } else {
+
+                $review = Reviews::findFirst([
+                    "email = ?0 AND chain = ?1",
+                    "bind"  => [
+                        $this->request->getPost("email"),
+                        $chain->id,
+                    ]
+                ]);
+
+                if (!$review) {
+                    $review = new Reviews();
+                }
+
+                $review->name = $this->request->getPost("name", "string");
+                $review->email = $this->request->getPost("email", "string");
+                $review->comments = $this->request->getPost("comments", ["striptags"]);
+                $review->flavour = $this->request->getPost("flavour", "int");
+                $review->mouthfeel = $this->request->getPost("mouthfeel", "int");
+                $review->coating = $this->request->getPost("coating", "int");
+                $review->sauces = $this->request->getPost("sauces", "int");
+                $review->overall = $this->request->getPost("overall", "int");
+                $review->chain = $chain->id;
+                $review->date = date("Y-m-d H:i:s");
+
+                if(!$review->save()) {
+                    foreach ($review->getMessages() as $message) {
+						$this->flash->error($message);
+                    }
+                } else {
+					$this->flashSession->success("Your review has been saved!");
+                    return $this->response->redirect("chains/" . $chain->nicename);
+                }
+            }
+        }
+
+        $this->view->form = $form;
+        $this->tag->prependTitle("Write a Review");
+		$chains = Chains::find();
+		$this->view->chains = $chains;
+	}
+}

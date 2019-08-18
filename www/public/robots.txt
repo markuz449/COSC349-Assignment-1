@@ -1,0 +1,3 @@
+User-agent: * 
+Disallow: 
+Sitemap: https://nuggetwatch.co.nz/sitemap.xml
