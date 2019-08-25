@@ -1,15 +1,7 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^(www\.)(.+) [OR]
-    RewriteCond %{HTTPS} off
-    RewriteCond %{HTTP_HOST} ^(www\.)?(.+)
-    RewriteRule ^ https://%2%{REQUEST_URI} [R=301,L]
-	RewriteRule  ^$ public/    [L]
-	RewriteRule  (.*) public/$1 [L]
-</IfModule>
-
-<IfModule pagespeed_module>
-    ModPagespeed off
+    RewriteEngine on
+    RewriteRule   ^$ public/    [L]
+    RewriteRule   ((?s).*) public/$1 [L]
 </IfModule>
 
 <IfModule mod_expires.c>
