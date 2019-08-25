@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
     dbserver.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
     
-    dbserver.vm.provision "shell", path: "build_database.sh"
+    dbserver.vm.provision "shell", path: "installs/build_database.sh"
   end
 
   # set up the webserver
@@ -27,9 +27,9 @@ Vagrant.configure("2") do |config|
     
     webserver.vm.network "private_network", ip: "192.168.2.11"
 
-    webserver.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+    webserver.vm.synced_folder ".", "/vagrant", owner: "www-data", group: "www-data", mount_options: ["dmode=775,fmode=777"]
 
-    webserver.vm.provision "shell", path: "build_webserver.sh"
+    webserver.vm.provision "shell", path: "installs/build_webserver.sh"
   end
 
   # set up the image server
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
 
     imgserver.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
     
-    imgserver.vm.provision "shell", path: "build_image.sh"
+    imgserver.vm.provision "shell", path: "installs/build_image.sh"
   end
 end
 
