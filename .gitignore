@@ -2,3 +2,5 @@ www/app/cache/
 www/app/temp/
 www/public/img/temp/
 www/vendor/
+ubuntu-bionic-18.04-cloudimg-console.log
+.vagrant/rgloader/loader.rb
