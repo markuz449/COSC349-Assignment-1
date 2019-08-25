@@ -5,20 +5,13 @@ namespace App\Controllers;
 use Phalcon\Http\Request;
 use App\Models\Prices;
 use App\Models\Chains;
-use Abraham\TwitterOAuth\TwitterOAuth;
 
 class PricesController extends ControllerBase {
 
 	public function indexAction() {
         $model = new Prices();
-        $model->getReadConnection()->query(
-            "CALL update_tags()"
-        );
         $this->tag->prependTitle("Prices");
 		$request = new Request();
-        $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
-        $status = 'This is a test tweet.';
-        // $post_tweets = $connection->post("statuses/update", ["status" => $status]);
 
 		if ($request->isPost()) {
 			$price = new Prices();
