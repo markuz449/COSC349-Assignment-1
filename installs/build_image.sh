@@ -1,2 +1,2 @@
-apt update
-apt install imagemagick
+apt-get update
+apt-get install imagemagick -y
