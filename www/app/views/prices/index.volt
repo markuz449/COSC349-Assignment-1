@@ -17,10 +17,9 @@
       <label for="Chain">Chain</label>
 		<select id="chain" name="chain" class="u-full-width">
 			<option selected="selected" disabled="disabled">Chain</option>
-			<option value="1">Burger King</option>
-			<option value="2">KFC</option>
-			<option value="3">McDonald's</option>
-			<option value="4">Wendy's</option>
+            {% for chain in chains %}
+			<option value="{{ chain.id }}">{{ chain.name }}</option>
+            {% endfor %}
 		</select>
     </div>
   </div>
