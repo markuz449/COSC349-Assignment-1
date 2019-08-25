@@ -11,9 +11,9 @@ return new Config(
     [
         "database" => [
             "adapter"     => "Mysql",
-            "host"        => "localhost",
-            "username"    => "",
-            "password"    => "",
+            "host"        => "192.168.2.12",
+            "username"    => "webuser",
+            "password"    => "insecure_db_pw",
             "dbname"      => "nugget",
         ],
         "application" => [
@@ -24,7 +24,7 @@ return new Config(
             "formsDir"       => __DIR__ . "/../../app/forms/",
             "pluginsDir"     => __DIR__ . "/../../app/plugins/",
             "libraryDir"     => __DIR__ . "/../../app/library/",
-            "cacheDir"       => __DIR__ . "/../../app/cache/",
+            "cacheDir"       => __DIR__ . "/../cache/",
             "baseUri"        => "/",
         ],
     ]
