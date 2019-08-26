@@ -145,7 +145,7 @@ ALTER DATABASE `nugget` CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`nathan`@`%`*/ /*!50003 TRIGGER `reviews_after_insert` AFTER INSERT ON `reviews` FOR EACH ROW UPDATE chains 
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 TRIGGER `reviews_after_insert` AFTER INSERT ON `reviews` FOR EACH ROW UPDATE chains 
 SET 
 	rating = (SELECT AVG(overall) FROM reviews WHERE chain = NEW.chain),
 	avg_flavour = (SELECT AVG(flavour) FROM reviews WHERE chain = NEW.chain),
