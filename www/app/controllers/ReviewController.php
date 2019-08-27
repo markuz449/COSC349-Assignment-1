@@ -86,8 +86,8 @@ class ReviewController extends ControllerBase {
                         $imageEntry->webid = $webid;
                         $imageEntry->filename = $image;
                         if($imageEntry->save()) {
-                            rename("/var/www/html/app/temp/".$image,"/var/www/html/public/img/full/".$image.".jpg");
-                            rename("/var/www/html/public/img/temp/".$image.".jpg","/var/www/html/public/img/thumbnails/".$image.".jpg");
+                            rename("/vagrant/www/app/temp/".$image,"/vagrant/www/public/img/full/".$image.".jpg");
+                            rename("/vagrant/www/public/img/temp/".$image.".jpg","/vagrant/www/public/img/thumbnails/".$image.".jpg");
                         } else {
                             $this->flashSession->error("An image could not be saved and frankly I don't know why.");
                         }
@@ -110,7 +110,7 @@ class ReviewController extends ControllerBase {
         $maxHeight = 150;
         $im = new \Imagick();
         try {
-            $im->readImage("/var/www/html/app/temp/" . $image);
+            $im->readImage("/vagrant/www/app/temp/" . $image);
         } catch (\Exception $e) {
             return false;
         }
@@ -130,7 +130,7 @@ class ReviewController extends ControllerBase {
         $newHeight = $scale*$height;
         $im->setImageCompressionQuality(85);
         $im->resizeImage($newWidth,$newHeight,\Imagick::FILTER_LANCZOS,1.1);
-        if($im->writeImage("/var/www/html/public/img/temp/" . $image . ".jpg")) {
+        if($im->writeImage("/vagrant/www/public/img/temp/" . $image . ".jpg")) {
             $im->clear();
             $im->destroy();
             return true;
@@ -155,7 +155,7 @@ class ReviewController extends ControllerBase {
 
             # Give the file a unique name
             $name = $random->uuid();
-            $path = '/var/www/html/app/temp/'.$name;
+            $path = '/vagrant/www/app/temp/'.$name;
 
             # Move and check
             if(!$upload->moveTo($path)) {
