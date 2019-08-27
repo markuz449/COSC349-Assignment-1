@@ -4,6 +4,7 @@ apt-get install -y apache2 php libapache2-mod-php php-mysql php-curl imagemagick
 apt-get install php-phalcon
 cp /vagrant/installs/000-default.conf /etc/apache2/sites-available/000-default.conf
 a2enmod rewrite
+sed -i '/upload_max_filesize/c\upload_max_filesize = 10M' /etc/php/7.3/apache2/php.ini
 service apache2 restart
 
 # install composer
