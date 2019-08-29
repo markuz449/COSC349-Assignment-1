@@ -23,21 +23,20 @@ title: COSC349 Assignment 1
 Nugget Watch aims to be the Wikipedia of chicken nugget prices. Nugget Watch has prices listed from the largest ready-to-eat chicken nugget suppliers in New Zealand. Nugget Watch also allows customers to rate and review their nuggets as well as upload images with their reviews.
 
 
-
-
 # Build System
 
 ## Configure and Build
 
-**Set secure database password:** 
+**Build virtual machines:** 
+
+`vagrant up`
+
+**Recommended: Set secure database password:** 
 
 Replace all instances of `insecure_db_pw` in `installs/build_database.sh` and `www/app/config/config.php` with your password of choice. 
 
 Replace all instances of 'insecure_mysqlroot_pw' in 'installs/build_database.sh' with a new root password for the database.
 
-**Build virtual machines:** 
-
-`vagrant up`
 
 ## Register an admin user
 
