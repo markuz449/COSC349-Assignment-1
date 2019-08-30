@@ -56,7 +56,7 @@ Nugget Watch is deployed over three virtual machines. Each virtual machine runs 
 
 
 
-# How to use NuggetWatch 
+# How to use Nugget Watch 
 
 ## Register an admin user
 
@@ -64,7 +64,7 @@ Visit [http://192.168.2.11/register](http://192.168.2.11/register) to create an 
 
 ## Administrating Nugget Watch
 
-[http://192.168.2.11/prices](http://192.168.2.11/prices) Is where you can add prices for the different chains as well as managing the existing prices. You can delete prices from NuggetWatch if they are out of date or you can confirm that the prices are correct. There is a timestamp which will show you when you last confirmed that the prices were correct. 
+[http://192.168.2.11/prices](http://192.168.2.11/prices) Is where you can add prices for the different chains as well as managing the existing prices. You can delete prices from Nugget Watch if they are out of date or you can confirm that the prices are correct. There is a timestamp which will show you when you last confirmed that the prices were correct. 
 
 [http://192.168.2.11/messages](http://192.168.2.11/messages) Click a name to read the message. Messages cannot be responded to from the web interface as there is no email server set up. Messages may be deleted (this sets a flag in the database to hide the message).
 These messages come from the contact form located on the front end [http://192.168.2.11/contact](http://192.168.2.11/contact)
@@ -77,13 +77,13 @@ These messages come from the contact form located on the front end [http://192.1
 
 ## Perusing
 
-[http://192.168.2.11](http://192.168.2.11) The home page of NuggetWatch is where all your dreams come true. The main chains are displayed with the deals that they offer, their overall ratings and a link to the reviews of the chain. The deals are orderd by the best value per nugget. 
+[http://192.168.2.11](http://192.168.2.11) The home page of Nugget Watch is where all your dreams come true. The main chains are displayed with the deals that they offer, their overall ratings and a link to the reviews of the chain. The deals are orderd by the best value per nugget. 
 
-[http://192.168.2.11/about](http://192.168.2.11/about) Tells the origin story of NuggetWatch as well as some of the most frequently asked questions that the NuggetWatch team encounters
+[http://192.168.2.11/about](http://192.168.2.11/about) Tells the origin story of Nugget Watch as well as some of the most frequently asked questions that the Nugget Watch team encounters
 
-[http://192.168.2.11/chains](http://192.168.2.11/chains) The chains page deals with the reviews for NuggetWatch. You can go explore into each chain and read the reviews from the users of NuggetWatch. The reviews are ordered by the date when the review was made, the most recent reviews are at the top. 
+[http://192.168.2.11/chains](http://192.168.2.11/chains) The chains page deals with the reviews for Nugget Watch. You can go explore into each chain and read the reviews from the users of Nugget Watch. The reviews are ordered by the date when the review was made, the most recent reviews are at the top. 
 
-[http://192.168.2.11/contact](http://192.168.2.11/contact) This is where you can contact the NuggetWatch team with any issues that are encountered.
+[http://192.168.2.11/contact](http://192.168.2.11/contact) This is where you can contact the Nugget Watch team with any issues that are encountered.
 
 # Useful Modifications
 
