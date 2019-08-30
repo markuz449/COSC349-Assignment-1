@@ -18,12 +18,12 @@ class ReviewsController extends ControllerBase {
 
     public function viewAction($id = null) {
         $this->tag->prependTitle("Author");
-        $review = Reviews::findFirst($id);
+        $review = Reviews::findFirstByWebid($id);
         $this->view->reviews = Reviews::findByEmail($review->email);
     }
 
     public function deleteAction($id) {
-        $review = Reviews::findFirstById($id);
+        $review = Reviews::findFirstByWebid($id);
         $review->delete();
         if ($review) {
             $this->flashSession->success("Review has been deleted");
@@ -35,7 +35,7 @@ class ReviewsController extends ControllerBase {
     }
 
     public function featureAction($id) {
-        $review = Reviews::findFirstById($id);
+        $review = Reviews::findFirstByWebid($id);
         if (!$review) {
             $this->flashSession->error("The review could not be found");
             return $this->response->redirect("reviews");

@@ -1,5 +1,6 @@
 <div class="container mt-2 mb-2">
 	<div class="row">
+        {{ flashSession.output() }}
 		<h1>Stats</h1>
 		{{ content() }}
 	</div>
@@ -30,8 +31,10 @@
                     {% endfor %}
                {% endif %}
                 <p>
-                <a href="/reviews/delete/{{ review.id }}" class="button">Delete</a>
-                <a href="/reviews/view/{{ review.id }}" class="button">Author</a>
+                <a href="/reviews/delete/{{ review.webid }}" class="button">Delete</a>
+                <a href="/reviews/view/{{ review.webid }}" class="button">Author</a>
+                <a href="/reviews/feature/{{ review.webid }}"
+                    class="button">Set Featured</a>
                 </p>
             </div>
             <div class="review-stars">
