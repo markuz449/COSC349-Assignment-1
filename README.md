@@ -3,17 +3,6 @@ output: pdf_document
 title: COSC349 Assignment 1
 ---
 
-# Notes:
-
-- Nathan will compile this document to PDF before submitting (this section will be deleted first)
-- Replace passwords for DB before build
-- Replace passwords and salts in config.php before build
-
-- All web server files are inside the www folder
-- All vm's have acess to the www folder
-- You do not need to rebuild because php is an interpreted language
-
-
 # Group:
 
 - Marcus Anderson (7049664)
@@ -24,16 +13,21 @@ title: COSC349 Assignment 1
 
 Nugget Watch aims to be the Wikipedia of chicken nugget prices. Nugget Watch has prices listed from the largest ready-to-eat chicken nugget suppliers in New Zealand. Nugget Watch also allows customers to rate and review their nuggets as well as upload images with their reviews.
 
+Nugget Watch was in development before the COSC349 assignment was made public and was built to put into practice design patterns from COSC344. To demonstrate the development of an application we have implemented "featured reviews". This required making changes to both the backend, and frontend of the website as well as the database structure and dummy data.
 
 # Build System
 
 ## Configure and Build
 
+**Optional before build:** Set secure database password:
+
+Replace all instances of `insecure_db_pw` in `installs/build_database.sh` and `www/app/config/config.php` with your password of choice. 
+
+Replace all instances of `insecure_mysqlroot_pw` in `installs/build_database.sh` with a new root password for the database.
+
 **Build virtual machines:** 
 
 `vagrant up`
-
-There is a reported warning in which we are running a piece of software 'Composer' as a a root super user. We needed to do this to give composer it's needed privalleges. This is expected behaviour.
 
 **Build time:**
 
@@ -41,12 +35,9 @@ The initial build for the three virtual machines and installiation of ubuntu/bio
 
 Subsequent builds took about 8 minutes
 
-**Recommended: ** Set secure database password:
+**Other notes:** 
 
-Replace all instances of `insecure_db_pw` in `installs/build_database.sh` and `www/app/config/config.php` with your password of choice. 
-
-Replace all instances of 'insecure_mysqlroot_pw' in 'installs/build_database.sh' with a new root password for the database.
-
+There is a reported warning in which we are running a piece of software 'Composer' as a a root super user. Composer needs to be run as a member of the vagrant user group. Considering that, this is expected behaviour.
 
 # The virtual machines
 
@@ -91,6 +82,18 @@ These messages come from the contact form located on the front end [http://192.1
 
 # Useful Modifications
 
+This project has been deployed and developed so that all components are separated. The host user is able to modify the web frontend/backend within the `www/` folder, and this folder is shared between all virtual machines. `installs/nugget.sql` is responsible for holding the database structure and inserting dummy data. `installs/crontab` contains the commands and schedule for the image server.
+
+```
+- www/
+  - app/
+      ;; Backend logic using MVC pattern
+  - public/
+      ;; Public resources such as images, favicons, css
+- installs/
+  - nugget.sql  ;; Database structure and initial dataset
+```
+
 ## Extend the API
 
 - GET Nearest nugget
@@ -98,9 +101,11 @@ These messages come from the contact form located on the front end [http://192.1
 - GET Nugget prices
 - GET / POST / PUT / PATCH / DELETE Reviews
 
+Extending the API would enable apps to be built on top of Nugget Watch. Potentially a nugget finder and review app.
+
 ## Implement map functionality
 
-Nugget Watch could show a map on screen
+Nugget Watch could show a map on the website. A service could be built to scrape the chains for their locations (if their terms of use permit this) and build a map on top of Google Maps API, or anything similar.
 
 ## Rating Reviews
 
@@ -108,5 +113,5 @@ Thumbs up / thumbs down for each review. Reviews could be rated either 'sweet' o
 
 ## Image checking
 
-Nugget Watch should have a way to check what the contents of the images uploaded are, making sure that no profanity is uploaded to the site. 
+Nugget Watch should have a way to check what the contents of the images uploaded are, making sure that no profanity is uploaded to the site. This could be accomplished by setting all new images with reviews to unapproved and requiring admin approval.
 
