@@ -31,18 +31,18 @@ Nugget Watch aims to be the Wikipedia of chicken nugget prices. Nugget Watch has
 
 `vagrant up`
 
-**Recommended: Set secure database password:** 
+There is a reported warning in which we are running a piece of software 'Composer' as a a root super user. We needed to do this to give composer it's needed privalleges. This is expected behaviour.
+
+**Build time:**
+The initial build for the three virtual machines and installiation of ubuntu/bionic64 took around 16 minutes
+
+Subsequent builds took about 8 minutes
+
+**Recommended: ** Set secure database password:
 
 Replace all instances of `insecure_db_pw` in `installs/build_database.sh` and `www/app/config/config.php` with your password of choice. 
 
 Replace all instances of 'insecure_mysqlroot_pw' in 'installs/build_database.sh' with a new root password for the database.
-
-
-## Register an admin user
-
-Visit [http://192.168.2.11/register](http://192.168.2.11/register) to create an admin user then login with the same details (you will be redirected after successfully creating an account).
-
-
 
 
 # The virtual machines
@@ -59,12 +59,16 @@ Nugget Watch is deployed over three virtual machines. Each virtual machine runs 
 
 # How to use NuggetWatch 
 
+## Register an admin user
+
+Visit [http://192.168.2.11/register](http://192.168.2.11/register) to create an admin user then login with the same details (you will be redirected after successfully creating an account).
+
 ## Administrating Nugget Watch
+
+[http://192.168.2.11/prices](http://192.168.2.11/prices) Is where you can add prices for the different chains as well as managing the existing prices. You can delete prices from NuggetWatch if they are out of date or you can confirm that the prices are correct. There is a timestamp which will show you when you last confirmed that the prices were correct. 
 
 [http://192.168.2.11/messages](http://192.168.2.11/messages) Click a name to read the message. Messages cannot be responded to from the web interface as there is no email server set up. Messages may be deleted (this sets a flag in the database to hide the message).
 These messages come from the contact form located on the front end [http://192.168.2.11/contact](http://192.168.2.11/contact)
-
-[http://192.168.2.11/prices](http://192.168.2.11/prices)
 
 [http://192.168.2.11/reviews](http://192.168.2.11/reviews) Reviews may be deleted by admins. Other reviews submitted by the same person may also be found by clicking the `author` button.
 
