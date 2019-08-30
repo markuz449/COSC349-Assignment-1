@@ -9,6 +9,10 @@ title: COSC349 Assignment 1
 - Replace passwords for DB before build
 - Replace passwords and salts in config.php before build
 
+- All web server files are inside the www folder
+- All vm's have acess to the www folder
+- You do not need to rebuild because php is an interpreted language
+
 
 # Group:
 
@@ -100,7 +104,7 @@ Nugget Watch could show a map on screen
 
 ## Rating Reviews
 
-Thumbs up / thumbs down for each review. Reviews could be rated either 'sweet' or 'sour' and could be sorted from best review to worst review.
+Thumbs up / thumbs down for each review. Reviews could be rated either 'sweet' or 'sour' and could be sorted from best review to worst review. Once you have finished creating the sweet/sour review rating you would only need to restart the database. 
 
 ## Image checking
 
