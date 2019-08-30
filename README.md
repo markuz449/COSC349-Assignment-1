@@ -43,11 +43,11 @@ There is a reported warning in which we are running a piece of software 'Compose
 
 Nugget Watch is deployed over three virtual machines. Each virtual machine runs `ubuntu/bionic64`, which is downloaded once on the first build - subsequent builds use the same box file. Each webserver then downloads, compiles, and installs it's own required software, all of which is open source.
 
-`webserver` is the virtual machine responisble for serving webpages. This virtual machine runs Apache to display our web pages that are written in PHP and the Phalcon framework. `webserver` installs apache; php and useful libraries such as imagick for initial image checks; Phalcon, an PHP framework as a C-extension; and Composer, a PHP library manager.
+`webserver` is the virtual machine responisble for serving webpages. This virtual machine runs Apache to display our web pages that are written in PHP and the Phalcon framework. `webserver` installs apache; php and useful libraries such as imagick for initial image checks; Phalcon, an PHP framework as a C-extension; and Composer, a PHP library manager. This server is preconfigured to interact with `dbserver` and is able to read and write reviews, chains, pricing, messages, etc.
 
-`dbserver` runs the database using MySQL. On initialisation this executes `installs/nugget.sql`.
+`dbserver` runs the database using MySQL. On initialisation this executes `installs/nugget.sql`. This server communicates with `webserver` to display Nugget Watch data.
 
-`imgsever` is responsible for compressing and resizing images. This virtual machine uses ImageMagick for resizing and cron for scheduling. This server can be developed further to move and resize images for a more responsive web design, and to move original full size files to longer term storage instead of deleting originals.
+`imgsever` is responsible for compressing and resizing images. This virtual machine uses ImageMagick for resizing and cron for scheduling. This server can be developed further to move and resize images for a more responsive web design, and to move original full size files to longer term storage instead of deleting originals. This server works on images within `www/app/temp/` and `www/public/img/` and saves the webserver from performing these expensive operations.
 
 
 
