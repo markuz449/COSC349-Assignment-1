@@ -230,6 +230,9 @@ margin-top: 0; }
 .review-text {
     flex: auto;
 }
+.review.featured {
+    border: 2px solid #f6ab4d;
+}
 
 @media (max-width: 700px){
     .review {

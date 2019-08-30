@@ -18,6 +18,7 @@ class Reviews extends Model {
 	public $sauces;
 	public $overall;
 	public $date;
+    public $featured;
 
 	public function initialize() {
 		$this->belongsTo('chain', 'App\Models\Chains', 'id', ['alias' => 'store']);

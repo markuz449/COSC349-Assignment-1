@@ -52,7 +52,7 @@
         {% if review.comments is null %}
             {% continue %}
         {% endif %}
-        <div class="row review" itemscope itemtype="http://schema.org/Review">
+        <div class="row review {% if review.featured %}featured{%endif%}" itemscope itemtype="http://schema.org/Review">
               <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/Thing">
                   <meta itemprop="name" content="{{ chain.name }} Chicken Nuggets">
               </span>

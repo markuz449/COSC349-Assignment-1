@@ -37,7 +37,7 @@ class SecurityPlugin extends Plugin {
 			// Private areas
 			$privateResources = [
 				'prices' => ['index', 'delete', 'confirm'],
-				'reviews' => ['index', 'view','update', 'delete'],
+				'reviews' => ['index', 'view','update', 'delete', 'feature'],
 				'messages' => ['index', 'search', 'read', 'delete'],
 			];
 
