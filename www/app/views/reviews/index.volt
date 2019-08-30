@@ -17,7 +17,7 @@
 <div class="container">
     <h2>Reviews</h2>
     {% for review in reviews %}
-        <div class="row review">
+    <div class="row review {% if review.featured %}featured{% endif %}">
             <div class="review-text">
                 <p><strong>{{ review.name }}</strong> 
                 <i>{{ review.date|date }}</i> <br>
@@ -33,8 +33,13 @@
                 <p>
                 <a href="/reviews/delete/{{ review.webid }}" class="button">Delete</a>
                 <a href="/reviews/view/{{ review.webid }}" class="button">Author</a>
+                {% if review.featured %}
+                <a href="/reviews/feature/{{ review.webid }}"
+                    class="button">Remove Featured</a>
+                {% else %}
                 <a href="/reviews/feature/{{ review.webid }}"
                     class="button">Set Featured</a>
+                {% endif %}
                 </p>
             </div>
             <div class="review-stars">
