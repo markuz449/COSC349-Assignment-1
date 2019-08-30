@@ -40,7 +40,12 @@ class ReviewsController extends ControllerBase {
             $this->flashSession->error("The review could not be found");
             return $this->response->redirect("reviews");
         }
-        $review->featured = 1;
+        if ($review->featured == 1) {
+            $review->featured = 0;
+        } else {
+            $review->featured = 1;
+        }
+
         if ($review->save()) {
             $this->flashSession->success("Featured review set successfullly");
             return $this->response->redirect("reviews");
