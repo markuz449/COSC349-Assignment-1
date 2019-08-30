@@ -92,6 +92,7 @@ This project has been deployed and developed so that all components are separate
       ;; Public resources such as images, favicons, css
 - installs/
   - nugget.sql  ;; Database structure and initial dataset
+  - crontab     ;; Schedule and commands for imgserver
 ```
 
 ## Extend the API
