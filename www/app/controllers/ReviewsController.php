@@ -34,4 +34,21 @@ class ReviewsController extends ControllerBase {
         }
     }
 
+    public function featureAction($id) {
+        $review = Reviews::findFirstById($id);
+        if (!$review) {
+            $this->flashSession->error("The review could not be found");
+            return $this->response->redirect("reviews");
+        }
+        $review->featured = 1;
+        if ($review->save()) {
+            $this->flashSession->success("Featured review set successfullly");
+            return $this->response->redirect("reviews");
+        } else {
+            $this->flashSession->error("The featured review could not be set");
+            return $this->response->redirect("reviews");
+        }
+
+    }
+
 }
