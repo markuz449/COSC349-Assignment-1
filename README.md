@@ -32,6 +32,7 @@ Nugget Watch aims to be the Wikipedia of chicken nugget prices. Nugget Watch has
 There is a reported warning in which we are running a piece of software 'Composer' as a a root super user. We needed to do this to give composer it's needed privalleges. This is expected behaviour.
 
 **Build time:**
+
 The initial build for the three virtual machines and installiation of ubuntu/bionic64 took around 16 minutes
 
 Subsequent builds took about 8 minutes
@@ -72,11 +73,17 @@ These messages come from the contact form located on the front end [http://192.1
 
 ## Reviewing
 
-[http://192.168.2.11/review](http://192.168.2.11/review). Reviews require a name and email address.
+[http://192.168.2.11/review](http://192.168.2.11/review) Users can review their nuggets that they had from the provided chains. Reviews require the users name and email address. Reviews also need all of the ratings to be filled in as well as comments to be a valid review. The user can upload a picture of their nuggets if they want to. 
 
 ## Perusing
 
-[http://192.168.2.11](http://192.168.2.11)
+[http://192.168.2.11](http://192.168.2.11) The home page of NuggetWatch is where all your dreams come true. The main chains are displayed with the deals that they offer, their overall ratings and a link to the reviews of the chain. The deals are orderd by the best value per nugget. 
+
+[http://192.168.2.11/about](http://192.168.2.11/about) Tells the origin story of NuggetWatch as well as some of the most frequently asked questions that the NuggetWatch team encounters
+
+[http://192.168.2.11/chains](http://192.168.2.11/chains) The chains page deals with the reviews for NuggetWatch. You can go explore into each chain and read the reviews from the users of NuggetWatch. The reviews are ordered by the date when the review was made, the most recent reviews are at the top. 
+
+[http://192.168.2.11/contact](http://192.168.2.11/contact) This is where you can contact the NuggetWatch team with any issues that are encountered.
 
 # Useful Modifications
 
@@ -94,4 +101,8 @@ Nugget Watch could show a map on screen
 ## Rating Reviews
 
 Thumbs up / thumbs down for each review. Reviews could be rated either 'sweet' or 'sour' and could be sorted from best review to worst review.
+
+## Image checking
+
+Nugget Watch should have a way to check what the contents of the images uploaded are, making sure that no profanity is uploaded to the site. 
 
