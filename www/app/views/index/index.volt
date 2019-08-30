@@ -5,7 +5,7 @@
             <h1>Nugget Watch</h1>
             <p class="sub-text">{{ herotext }}</p>
             </div>
-            <img src="/img/nug.jpg">
+            <img src="/img/nug.png">
         </div>
     </div>
 </div>
