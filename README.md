@@ -80,6 +80,7 @@ These messages come from the contact form located on the front end [http://192.1
 
 [http://192.168.2.11/contact](http://192.168.2.11/contact) This is where you can contact the Nugget Watch team with any issues that are encountered.
 
+\newpage
 # Useful Modifications
 
 This project has been deployed and developed so that all components are separated. The host user is able to modify the web frontend/backend within the `www/` folder, and this folder is shared between all virtual machines. `installs/nugget.sql` is responsible for holding the database structure and inserting dummy data. `installs/crontab` contains the commands and schedule for the image server.
