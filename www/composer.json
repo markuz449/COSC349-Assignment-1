@@ -1,6 +1,6 @@
 {
     "require": {
         "abraham/twitteroauth": "^1.0",
-        "nesbot/carbon": "^1.38"
+        "nesbot/carbon": "^2.72"
     }
 }
